@@ -115,7 +115,15 @@ margin, padding의 값 지정
     */
     background-color: #764fd1;
 
-    background-color: rgb(0, 255, 0);
+    /*
+    10진수 타입으로 색상 표현
+    rgb() 함수를 사용하여 각각 R, G, B 갑승ㄹ
+    0 ~ 255 범위에서 표현하면 된다.
+    */
+    background-color: rgb(8, 235, 8);
+
+    /* R, G, B, A(Alpha)*/
+    background-color: rgba(8, 235, 8, 0.2);
     
 }
 

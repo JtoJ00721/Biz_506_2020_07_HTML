@@ -199,6 +199,11 @@
             .catch((err) => {
               alert("데이터 통신오류 ><");
             });
+        }); // btn-send end
+
+        // reset 버튼 hidden input data clear 버그 수정
+        $(document).on("click", "#btn-reset", () => {
+          $("#b_seq").val(0);
         });
       });
     </script>

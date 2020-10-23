@@ -237,14 +237,18 @@
           formData.append("file", files[0]);
 
           $.ajax({
-            url: "http://localhost:8080/bbs/api/bbs",
+            url: "http://localhost:8080/bbs/api/file",
             method: "POST",
             data: formData,
             processData: false,
             contentType: false,
             success: (result) => {
-              alert("파일 업로드 성공");
               $("#image-drop h3").text("파일을 끌어 놓으세요 ><");
+              let img = $("<img/>", {
+                src: "http://localhost:8080/bbs/upload/" + result,
+                height: "100px",
+              });
+              $("#image-view").html(img);
             },
             error: (err) => {
               alert("서버 통신 오류");
@@ -327,6 +331,12 @@
           justify-content: center;
           align-items: center;
         }
+
+        #image-view {
+          border: 3px dashed black;
+          height: 100px;
+          background-color: aliceblue;
+        }
       </style>
       <script>
         $(function () {});
@@ -334,6 +344,7 @@
       <div id="image-drop">
         <h3>파일을 끌어다 놓으세요</h3>
       </div>
+      <div id="image-view"></div>
       <div id="button-box">
         <input name="b_seq" id="b_seq" value="0" type="hidden" />
         <button type="button" id="btn-send">axios 전송</button>
